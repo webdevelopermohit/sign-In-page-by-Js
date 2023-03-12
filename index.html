@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In page| password confirmation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <img src="user.png" alt="user">
+        <h1>Sign In</h1>
+    <p>
+        <input type="email" id="email" required placeholder="Enter the valid Email">
+    </p>
+    <p>
+    <input id="first" type="password" value="" required placeholder="Set password">
+    <p id="password"></p>
+    </p>
+    <p>
+    <input id="second" type="password" value="" required placeholder="Confirm password"> 
+    </p>
+    <p style="color: red;" id="input"></p>
+   <button id="button">Sign In</button>
+</div>
+   <script>
+     let firstpassword=document.getElementById("first")
+     let Conformationpassword=document.getElementById("second")
+     let loginbtn=document.getElementById("button")
+     let displayoutput=document.getElementById("input")
+     let emailbox=document.getElementById("email")
+     let passwordOutput=document.getElementById("password")
+     loginbtn.addEventListener("click", check)
+     function check(){
+        let first=firstpassword.value;
+        let Conform=Conformationpassword.value;
+        let email=emailbox.value
+        if(first.length>8){
+           passwordOutput.innerText="**password must be less than 8 chatacter";
+           passwordOutput.style.color="red";
+           setTimeout( function (){
+                window.location.reload()
+            },1800)
+        }
+        if(email.length==0){
+            displayoutput.innerText="**Enter the information";
+            setTimeout( function (){
+                window.location.reload()
+            },1800)
+        } else if(first!=Conform){
+            displayoutput.innerText="invalid password.Re-enter the password"
+            setTimeout( function (){
+                window.location.reload()
+            },2200)
+        } else if(first==Conform){
+            loginbtn.innerText="Sign In succefully";
+            setTimeout( function (){
+                window.location.reload()
+            },2200)
+        }
+     }
+   </script>
+</body>
+</html>
